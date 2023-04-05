@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_cam_customer_customer_form" model="ir.ui.view">
+            <field name="name">customer.customer.form</field>
+            <field name="model">customer.customer</field>
+            <field name="arch" type="xml">
+                <form string="Customer">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="customer_id"/>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="name"/>
+                                <field name="dob"/>
+                                <field name="current_date"/>
+                                <field name="age"/>
+                                <field name="phone_no"/>
+                                <field name="email_id"/>
+                                <field name="car_id"/>
+
+                            </group>
+                            <group>
+
+                                <strong class="o_form_record_title">
+                                    <span>
+                                        <heading>Address</heading>
+                                    </span>
+                                </strong>
+
+                                <field name="flat_no"/>
+                                <field name="area"/>
+                                <field name="city"/>
+                                <field name="pin_no"/>
+                                <field name="car_detail_ids" widget="many2many_tags"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_customer_customer_tree" model="ir.ui.view">
+            <field name="name">customer.customer.tree</field>
+            <field name="model">customer.customer</field>
+            <field name="arch" type="xml">
+                <tree string="customer">
+                    <field name="customer_id"/>
+                    <field name="name"/>
+                    <field name="dob"/>
+                    <field name="phone_no"/>
+                    <field name="email_id"/>
+                    <field name="address"/>
+                    <field name="flat_no"/>
+                    <field name="area"/>
+                    <field name="city"/>
+                    <field name="pin_no"/>
+                    <field name="car_detail_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search-->
+        <record id="view_customer_search" model="ir.ui.view">
+            <field name="name">customer.customer.search</field>
+            <field name="model">customer.customer</field>
+            <field name="arch" type="xml">
+                <search string="Customer">
+                    <field name="customer_id" string="customer_id"/>
+                    <field name="name" string="name"/>
+                    <field name="address"/>
+                    <separator/>
+                    <filter string="Customer" name="Customer_id" domain="[('customer_id','=','customer_id')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_email" string="email" domain="[]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_customer_customer" model="ir.actions.act_window">
+            <field name="name">Customer</field>
+            <field name="res_model">customer.customer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_customer_search"/>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="skylinecars_menu" name="Skylinecars" sequence="1"/>
+        <menuitem id="customer_menu" name="Customer" sequence="2" action="action_customer_customer"
+                  parent="skylinecars_menu"/>
+
+    </data>
+</odoo>

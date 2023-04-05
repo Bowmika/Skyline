@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- Form View-->
+    <record id="view_cam_suggestion_suggestion_form" model="ir.ui.view">
+    <field name="name">suggestion.suggestion.form</field>
+    <field name="model">suggestion.suggestion</field>
+    <field name="arch" type="xml">
+        <form string="Suggestion">
+            <sheet>
+                <group>
+                        <field name="suggestion"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+    </record>
+
+      <!--Search-->
+    <record id="view_suggestion_search" model="ir.ui.view">
+        <field name="name">suggestion.suggestion.search</field>
+        <field name="model">suggestion.suggestion</field>
+        <field name="arch" type="xml">
+            <search string="Suggestion">
+                <field name="suggestion" string="suggestion"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_suggestion_suggestion" model="ir.actions.act_window">
+        <field name="name">suggestion</field>
+        <field name="res_model">suggestion.suggestion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_suggestion_search"/>
+    </record>
+
+    <!--Menus-->
+    <menuitem id="skylinecars_menu" name="Skylinecars" sequence="1"/>
+    <menuitem id="suggestion_menu" name="Suggestion" sequence="2" action="action_suggestion_suggestion" parent="skylinecars_menu"/>
+
+  </data>
+</odoo>

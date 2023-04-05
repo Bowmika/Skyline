@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- Form View-->
+    <record id="view_billing_billing_form" model="ir.ui.view">
+        <field name="name">billing.billing.form</field>
+        <field name="model">billing.billing</field>
+        <field name="arch" type="xml">
+            <form string="Billing">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="pay_on_delivery"/>
+                            <field name="upi"/>
+                            <field name="debit"/>
+                            <field name="credit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page sstring="Customer">
+                            <field name="customer_id"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree Views-->
+    <record id="view_billing_billing_tree" model="ir.ui.view">
+        <field name="name">billing.billing.tree</field>
+        <field name="model">billing.billing</field>
+        <field name="arch" type="xml">
+            <tree string="billing">
+                <field name="customer_id"/>
+                <field name="pay_on_delivery" widget="boolean_toggle" />
+                <field name="upi" widget="boolean_toggle" />
+                <field name="debit" widget="boolean_toggle" />
+                <field name="credit" widget="boolean_toggle" />
+            </tree>
+        </field>
+    </record>
+
+
+        <!--Search-->
+    <record id="view_billing_search" model="ir.ui.view">
+        <field name="name">billing.billing.search</field>
+        <field name="model">billing.billing</field>
+        <field name="arch" type="xml">
+            <search string="Billing">
+                <field name="customer_id"/>
+                <field name="pay_on_delivery"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_debit" string="debit" domain="[]" context="{'group_by': 'debit'}"/>
+                     <filter name="group_credit" string="credit" domain="[]" context="{'group_by': 'credit'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_billing_billing" model="ir.actions.act_window">
+        <field name="name">billing</field>
+        <field name="res_model">billing.billing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_billing_search"/>
+    </record>
+
+    <!--Menus-->
+    <menuitem id="skylinecars_menu" name="Skylinecars" sequence="1"/>
+    <menuitem id="billing_menu" name="Billing" sequence="2" action="action_billing_billing" parent="skylinecars_menu"/>
+
+    </data>
+</odoo>

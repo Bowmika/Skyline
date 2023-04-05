@@ -1,0 +1,7 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+
+access_customer_customer,access_customer_customer,model_customer_customer,,1,1,1,1
+access_suggestion_suggestion,access_suggestion_suggestion,model_suggestion_suggestion,,1,1,1,1
+access_billing_billing,access_billing_billing,model_billing_billing,,1,1,1,1
+access_vehicle_vehicle,access_vehicle_vehicle,model_vehicle_vehicle,,1,1,1,1
+access_customer_details,access_customer_details,model_customer_details,,1,1,1,1

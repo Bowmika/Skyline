@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- Form View-->
+    <record id="view_vehicle_vehicle_form" model="ir.ui.view">
+    <field name="name">vehicle.vehicle.form</field>
+    <field name="model">vehicle.vehicle</field>
+    <field name="arch" type="xml">
+        <form string="Vehicle">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="color"/>
+                        <field name="car_number"/>
+                         <field name="seater"/>
+                        <field name="customer_id"/>
+                    </group>
+                     <field name="customer_details"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+    </record>
+
+    <!--Tree Views-->
+    <record id="view_vehicle_vehicle_tree" model="ir.ui.view">
+        <field name="name">vehicle.vehicle.tree</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="customer">
+                <field name="price"/>
+                <field name="color"/>
+                <field name="car_number"/>
+                <field name="seater"/>
+            </tree>
+        </field>
+    </record>
+
+        <!--Search-->
+    <record id="view_customer_search" model="ir.ui.view">
+        <field name="name">vehicle.vehicle.search</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="arch" type="xml">
+            <search string="Vehicle">
+                <separator/>
+                <filter string="Customer" name="customer_id" domain="[('customer_id','=','customer_id')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_email" string="email" domain="[]"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vehicle_vehicle" model="ir.actions.act_window">
+        <field name="name">vehicle</field>
+        <field name="res_model">vehicle.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    <!--       <field name="search_view_id" ref="view_vehicle_search"/>-->
+    </record>
+
+    <!--Menus-->
+    <menuitem id="skylinecars_menu" name="Skylinecars" sequence="1"/>
+    <menuitem id="vehicle_menu" name="Vehicle" sequence="2" action="action_vehicle_vehicle" parent="skylinecars_menu"/>
+
+  </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
