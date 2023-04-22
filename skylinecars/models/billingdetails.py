@@ -14,6 +14,8 @@ class Customer(models.Model):
                                 ('debit','Debit'),
                                 ('credit','credit')
                                        ],'Billing Method')
+    suggestion = fields.Text(string="Suggestion")
+
 
 class CustomerDetails(models.Model):
     _name = "customer.details"

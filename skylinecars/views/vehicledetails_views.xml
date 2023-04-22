@@ -2,6 +2,18 @@
 <odoo>
 <data>
 
+    <!--<div name="button_box" class="oe_button_box">
+        <button name="action_billing_billing" type="object" class="oe_start_button"
+                icon="fa-billing">
+            <div classs="o_start_info">
+                <field name="customer_id" class="o_start_value"/>
+                <span class="o_start_text">Invoice</span>
+
+            </div>
+        </button>
+    </div>
+-->
+
     <!-- Form View-->
     <record id="view_vehicle_vehicle_form" model="ir.ui.view">
     <field name="name">vehicle.vehicle.form</field>
@@ -11,12 +23,10 @@
             <sheet>
                 <group>
                     <group>
-                        <field name="name"/>
-                        <field name="price"/>
-                        <field name="color"/>
-                        <field name="car_number"/>
+                         <field name="cars"/>
                          <field name="seater"/>
                         <field name="customer_id"/>
+                        <field name="user_id"/>
                     </group>
                      <field name="customer_details"/>
                 </group>
@@ -31,9 +41,7 @@
         <field name="model">vehicle.vehicle</field>
         <field name="arch" type="xml">
             <tree string="customer">
-                <field name="price"/>
-                <field name="color"/>
-                <field name="car_number"/>
+                 <field name="cars"/>
                 <field name="seater"/>
             </tree>
         </field>

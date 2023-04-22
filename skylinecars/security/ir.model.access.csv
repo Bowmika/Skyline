@@ -1,7 +1,13 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 
-access_customer_customer,access_customer_customer,model_customer_customer,,1,1,1,1
-access_suggestion_suggestion,access_suggestion_suggestion,model_suggestion_suggestion,,1,1,1,1
+access_customer_customer,access_customer_customer,model_customer_customer,group_cars_customer,1,0,0,0
+access_customer_customer_manager,access_customer_customer_manager,model_customer_customer,group_cars_manager,1,1,1,1
+
+access_vehicle_vehicle_customer,access_vehicle_vehicle_customer,model_vehicle_vehicle,group_cars_customer,1,1,1,0
+access_vehicle_vehicle_manager,access_vehicle_vehicle_manager,model_vehicle_vehicle,group_cars_manager,1,1,1,1
+
 access_billing_billing,access_billing_billing,model_billing_billing,,1,1,1,1
-access_vehicle_vehicle,access_vehicle_vehicle,model_vehicle_vehicle,,1,1,1,1
 access_customer_details,access_customer_details,model_customer_details,,1,1,1,1
+access_driver_driver,access_driver_driver,model_driver_driver,,1,1,1,0
+access_payment_payment,access_payment_payment,model_payment_payment,,1,1,1,0
+access_discount_discount,access_discount_discount,model_discount_discount,,1,1,1,1

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- Form View-->
+    <record id="view_discount_discount_form" model="ir.ui.view">
+    <field name="name">discount.discount.form</field>
+    <field name="model">discount.discount</field>
+    <field name="arch" type="xml">
+        <form string="Discount">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="customer_ids"/>
+                        <field name="cars"/>
+                        <field name="seater"/>
+                        <field name="discount_ids"/>
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="tax"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+    </record>
+
+        <!--Tree Views-->
+        <record id="view_discount_discount_tree" model="ir.ui.view">
+            <field name="name">discount.discount.tree</field>
+            <field name="model">discount.discount</field>
+            <field name="arch" type="xml">
+                <tree string="Discount">
+                    <field name="customer_ids"/>
+                    <field name="cars"/>
+                    <field name="fuel"/>
+                    <field name="seater"/>
+                    <field name="discount_ids"/>
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="tax"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="action_discount_discount" model="ir.actions.act_window">
+            <field name="name">Discount</field>
+            <field name="res_model">discount.discount</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Menus-->
+        <menuitem id="discount_menu" name="Discount" sequence="2" action="action_discount_discount"
+                  parent="skylinecars_menu"/>
+
+
+    </data>
+</odoo>
+

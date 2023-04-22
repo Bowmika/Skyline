@@ -3,7 +3,7 @@
     <data>
 
         <!-- Form View-->
-        <record id="view_cam_customer_customer_form" model="ir.ui.view">
+        <record id="view_customer_customer_form" model="ir.ui.view">
             <field name="name">customer.customer.form</field>
             <field name="model">customer.customer</field>
             <field name="arch" type="xml">
@@ -17,30 +17,22 @@
                                 <field name="last_name"/>
                                 <field name="name"/>
                                 <field name="dob"/>
-                                <field name="current_date"/>
+                         <!--   <field name="current_date"/>-->                                                                                                                                                                                                         b
                                 <field name="age"/>
                                 <field name="phone_no"/>
                                 <field name="email_id"/>
                                 <field name="car_id"/>
-
                             </group>
                             <group>
-
-                                <strong class="o_form_record_title">
-                                    <span>
-                                        <heading>Address</heading>
-                                    </span>
-                                </strong>
-
                                 <field name="flat_no"/>
                                 <field name="area"/>
                                 <field name="city"/>
                                 <field name="pin_no"/>
                                 <field name="car_detail_ids" widget="many2many_tags"/>
-
                             </group>
                         </group>
                     </sheet>
+
                 </form>
             </field>
         </record>
@@ -77,9 +69,9 @@
                     <field name="address"/>
                     <separator/>
                     <filter string="Customer" name="Customer_id" domain="[('customer_id','=','customer_id')]"/>
-                    <group expand="0" string="Group By">
+                   <!-- <group expand="0" string="Group By">
                         <filter name="group_email" string="email" domain="[]"/>
-                    </group>
+                    </group>-->
                 </search>
             </field>
         </record>
@@ -94,8 +86,9 @@
 
         <!--Menus-->
         <menuitem id="skylinecars_menu" name="Skylinecars" sequence="1"/>
-        <menuitem id="customer_menu" name="Customer" sequence="2" action="action_customer_customer"
+        <menuitem id="customer_menu" name="Customer" sequence="2" action="action_customer_customer" groups ="skylinecars.group_cars_manager"
                   parent="skylinecars_menu"/>
 
     </data>
 </odoo>
+
